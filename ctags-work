@@ -1,0 +1,7 @@
+-R
+--C-kinds=defgmpstvx
+--C++-kinds=cdefgmnpstvx
+--Python-kinds=cfimv
+--fields=+iaS
+--extra=+q
+-L .ctags-src-files

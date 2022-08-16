@@ -1,0 +1,11 @@
+-R
+--kinds-C=defghmpstvxz
+--kinds-C++=AUZcdefghmnpstvxz
+--kinds-Python=Icfimvz
+# Use fields and extras options for compatibility with OmniCppComplete plugin.
+--fields=+iaS
+--extras=+q
+# Put source files in this list file. Expected the first line is '.' for the
+# working directory and the remaining lines dependencies such as the include 
+# files of libraries used.
+-L .ctags-src-files
