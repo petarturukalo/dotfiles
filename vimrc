@@ -420,5 +420,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'erig0/cscope_dynamic'
+Plug 'dense-analysis/ale'
 
 call plug#end()
