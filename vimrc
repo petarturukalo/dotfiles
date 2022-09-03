@@ -46,6 +46,7 @@ hi WildMenu ctermbg=174
 hi StatusLine cterm=bold ctermbg=250
 hi StatusLineNC cterm=none ctermbg=253
 hi VertSplit cterm=none
+hi SignColumn ctermbg=255
 
 " OmniCppComplete plugin settings.
 " Have selecting an option in a popup window show more info in another popup
