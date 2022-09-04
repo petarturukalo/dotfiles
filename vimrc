@@ -280,7 +280,7 @@ endfunc
 " Function keys.
 nnoremap <F1> :cp<cr>
 nnoremap <F2> :cn<cr>
-nnoremap <F5> :GitGutterToggle<cr>
+nnoremap <F5> :ALEToggle<cr>
 nnoremap <silent><F6> :call ToggleCwindow()<cr>
 nnoremap <silent><F7> :TagbarToggle<cr>
 nmap <F12> <Plug>CscopeDBInit
