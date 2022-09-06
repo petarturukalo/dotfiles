@@ -1,7 +1,3 @@
-func! WorkVersion()
-	return $USER != "pt"
-endfunc
-
 " SETTINGS
 
 " Misc settings.
@@ -10,6 +6,7 @@ set nocp
 set timeoutlen=200  " Time in ms to wait for next keycode in a remapping. 
 set backspace=2  " Fix backspace sometimes not working in insert mode.
 set showcmd
+set exrc  " Use .vimrc in directory vim is opened from (project level settings).
 
 " Search settings.
 set hlsearch
@@ -17,14 +14,10 @@ set incsearch
 set noic
 
 " Tab settings.
-if WorkVersion()
-	let tabsz=4
-else
-	let tabsz=8
-endif
-let &tabstop=tabsz
-let &softtabstop=tabsz
-let &shiftwidth=tabsz
+let TABSZ=8
+let &tabstop=TABSZ
+let &softtabstop=TABSZ
+let &shiftwidth=TABSZ
 set noexpandtab
 
 " Statusline and visual settings.
@@ -59,17 +52,16 @@ set updatetime=100  " Update signs every 100 ms.
 
 " Vim-gutentags plugin settings.
 let gutentags_ctags_options_string='--options=' . $HOME . '/.ctags'
-if WorkVersion()
-	" Older version of ctags doesn't want to use an options file
-	" not called .ctags.cnf for whatever reason.
-	let gutentags_ctags_options_string .= '.cnf'
-endif
 let g:gutentags_ctags_extra_args=[gutentags_ctags_options_string]
 let g:gutentags_modules=['ctags']
 " Commented out because it was producing duplicate tags, but should be used
 " over recursing over the current directory '.' because it prevents there from 
 " being ctags and cscope files when using vim not in .c projects.
 "let g:gutentags_file_list_command='find . -name "*.[ch]"'
+
+" Ale plugin settings.
+let g:ale_enabled = 0  " Disable ale by default.
+let g:ale_c_cc_options="-std=c11 -Wall"
 
 " Cscope settings.
 " Dump results in quickfix window.
