@@ -1,7 +1,9 @@
-#! /bin/sh
+#! /bin/bash
 # Deploy dotfiles to the current user's home directory.
-FILES=(bashrc ctags tmux.conf vimrc)
+FILES=(bashrc ctags tmux.conf)
 
 for f in ${FILES[@]}; do
-	ln -is $PWD/$f $HOME/.$f
+	ln -vis $PWD/$f $HOME/.$f
 done
+mkdir -vp $HOME/.vim
+ln -is $PWD/vimrc $HOME/.vim/vimrc
