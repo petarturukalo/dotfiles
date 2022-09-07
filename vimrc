@@ -7,6 +7,7 @@ set timeoutlen=200  " Time in ms to wait for next keycode in a remapping.
 set backspace=2  " Fix backspace sometimes not working in insert mode.
 set showcmd
 set exrc  " Use .vimrc in directory vim is opened from (project level settings).
+set secure
 
 " Search settings.
 set hlsearch
@@ -51,8 +52,7 @@ let g:gitgutter_enabled=0
 set updatetime=100  " Update signs every 100 ms.
 
 " Vim-gutentags plugin settings.
-let gutentags_ctags_options_string='--options=' . $HOME . '/.ctags'
-let g:gutentags_ctags_extra_args=[gutentags_ctags_options_string]
+let g:gutentags_ctags_extra_args=['--options=' . $HOME . '/.ctags']
 let g:gutentags_modules=['ctags']
 " Commented out because it was producing duplicate tags, but should be used
 " over recursing over the current directory '.' because it prevents there from 
