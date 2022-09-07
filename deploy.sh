@@ -6,4 +6,4 @@ for f in ${FILES[@]}; do
 	ln -vis $PWD/$f $HOME/.$f
 done
 mkdir -vp $HOME/.vim
-ln -is $PWD/vimrc $HOME/.vim/vimrc
+ln -vis $PWD/vimrc $HOME/.vim/vimrc
