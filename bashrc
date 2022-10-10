@@ -14,7 +14,8 @@ alias ms='apropos'  # Man (pages) search.
 alias mycgdb='export TERM="screen-256color"; sudo cgdb'
 alias svim='vim --servername vim'
 
-
+# Offload rest of configuration to local script for machine-dependent
+# configuration.
 if [ -f $HOME/.bashrc.local ]; then
 	source $HOME/.bashrc.local
 fi
