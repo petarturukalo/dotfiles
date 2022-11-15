@@ -1,4 +1,4 @@
-PS1='\u \W \$ '
+PS1='\u \W $ '
 set -o vi
 shopt -s globstar
 
