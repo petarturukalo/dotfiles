@@ -5,5 +5,5 @@ set path, e.g.
 ```
 sudo mkdir -p /etc/git/hooks
 git config --global --add core.hooksPath /etc/git/hooks
-sudo rsync -av /<dotfiles repo>/git-hooks/* /etc/git/hooks --exclude=README.txt
+sudo rsync -av /<dotfiles repo>/git-hooks/* /etc/git/hooks --exclude=README.md
 ```
