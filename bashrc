@@ -13,9 +13,10 @@ alias tmux='tmux -2'
 alias ms='apropos'  # Man (pages) search.
 alias cgdb='env TERM=screen-256color sudo cgdb'
 alias svim='vim --servername vim'
+alias ctags-init='echo . > .ctags-src-files'
 
 # Offload rest of configuration to local script for machine-dependent
 # configuration.
-if [ -f $HOME/.bashrc.local ]; then
-	source $HOME/.bashrc.local
+if [ -f ~/.bashrc.local ]; then
+	source ~/.bashrc.local
 fi
