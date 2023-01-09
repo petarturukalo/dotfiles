@@ -3,7 +3,7 @@
 FILES=(bashrc ctags tmux.conf)
 
 for f in ${FILES[@]}; do
-	ln -vis $PWD/$f $HOME/.$f
+	ln -vis $PWD/$f ~/.$f
 done
-mkdir -vp $HOME/.vim
-ln -vis $PWD/vimrc $HOME/.vim/vimrc
+mkdir -vp ~/.vim
+ln -vis $PWD/vimrc ~/.vim/vimrc
