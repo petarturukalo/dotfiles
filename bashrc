@@ -10,7 +10,6 @@ bind -m vi-insert '\c-l: clear-screen'
 alias ls='ls --color=auto'
 alias hib='systemctl hibernate'
 alias tmux='tmux -2'
-alias ms='apropos'  # Man (pages) search.
 alias cgdb='env TERM=screen-256color sudo cgdb'
 alias svim='vim --servername vim'
 alias ctags-init='echo . > .ctags-src-files'
