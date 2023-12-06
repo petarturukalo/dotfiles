@@ -15,10 +15,10 @@ set incsearch
 set noic
 
 " Tab settings.
-let TABSZ=8
-let &tabstop=TABSZ
-let &softtabstop=TABSZ
-let &shiftwidth=TABSZ
+let TABSZ = 8
+let &tabstop = TABSZ
+let &softtabstop = TABSZ
+let &shiftwidth = TABSZ
 set noexpandtab
 
 " Statusline and visual settings.
@@ -49,20 +49,20 @@ hi SignColumn ctermbg=255
 set completeopt=menu,preview,popup
 
 " Vim-gitgutter plugin settings.
-let g:gitgutter_enabled=0
+let g:gitgutter_enabled = 0
 set updatetime=100  " Update signs every 100 ms.
 
 " Vim-gutentags plugin settings.
-let g:gutentags_ctags_extra_args=['--options=' . $HOME . '/.ctags']
-let g:gutentags_modules=['ctags', 'cscope']
+let g:gutentags_ctags_extra_args = ['--options=' . $HOME . '/.ctags']
+let g:gutentags_modules = ['ctags', 'cscope']
 " Files to generate tags for by default. This can be overridden per-project
 " by setting this again in the project root .vimrc file.
-let g:gutentags_file_list_command='find . -name "*.[ch]"'
-let g:gutentags_cscope_build_inverted_index=1
+let g:gutentags_file_list_command = 'find . -name "*.[ch]"'
+let g:gutentags_cscope_build_inverted_index = 1
 
 " Ale plugin settings.
 let g:ale_enabled = 0  " Disable ale by default.
-let g:ale_c_cc_options="-std=c11 -Wall"
+let g:ale_c_cc_options = "-std=c11 -Wall"
 
 " Cscope settings.
 " Dump results in quickfix window.
