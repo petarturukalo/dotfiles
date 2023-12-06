@@ -33,6 +33,7 @@ set t_Co=256  " Use 256 colours.
 set cursorline  " Background highlight the current line grey.
 hi CursorLine cterm=none ctermbg=255
 hi CursorLineNr cterm=none ctermbg=255 ctermfg=174
+hi Visual ctermbg=251
 hi LineNr ctermfg=174
 hi Search ctermbg=210
 hi Pmenu ctermbg=217 
