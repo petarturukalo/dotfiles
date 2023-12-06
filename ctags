@@ -1,6 +1,7 @@
---kinds-C=defghmpstvxz
---kinds-C++=AUZcdefghmnpstvxz
---kinds-Python=Icfimvz
+--kinds-C=defghmpstvx
+--kinds-C++=AUZcdefghmnpstvx
+--kinds-Python=Icfimv
 # Use fields and extras options for compatibility with OmniCppComplete plugin.
 --fields=+iaS
 --extras=+q
+--tag-relative=yes
