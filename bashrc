@@ -12,7 +12,6 @@ alias hib='systemctl hibernate'
 alias tmux='tmux -2'
 alias cgdb='env TERM=screen-256color sudo cgdb'
 alias svim='vim --servername vim'
-alias ctags-init='echo . > .ctags-src-files'
 
 # Offload rest of configuration to local script for machine-dependent
 # configuration.

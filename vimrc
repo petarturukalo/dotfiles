@@ -55,10 +55,9 @@ set updatetime=100  " Update signs every 100 ms.
 " Vim-gutentags plugin settings.
 let g:gutentags_ctags_extra_args=['--options=' . $HOME . '/.ctags']
 let g:gutentags_modules=['ctags']
-" Commented out because it was producing duplicate tags, but should be used
-" over recursing over the current directory '.' because it prevents there from 
-" being ctags and cscope files when using vim not in .c projects.
-"let g:gutentags_file_list_command='find . -name "*.[ch]"'
+" Files to generate tags for by default. This can be overridden per-project
+" by setting this again in the project root .vimrc file.
+let g:gutentags_file_list_command='find . -name "*.[ch]"'
 
 " Ale plugin settings.
 let g:ale_enabled = 0  " Disable ale by default.
