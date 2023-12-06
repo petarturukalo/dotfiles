@@ -54,10 +54,11 @@ set updatetime=100  " Update signs every 100 ms.
 
 " Vim-gutentags plugin settings.
 let g:gutentags_ctags_extra_args=['--options=' . $HOME . '/.ctags']
-let g:gutentags_modules=['ctags']
+let g:gutentags_modules=['ctags', 'cscope']
 " Files to generate tags for by default. This can be overridden per-project
 " by setting this again in the project root .vimrc file.
 let g:gutentags_file_list_command='find . -name "*.[ch]"'
+let g:gutentags_cscope_build_inverted_index=1
 
 " Ale plugin settings.
 let g:ale_enabled = 0  " Disable ale by default.
@@ -275,7 +276,6 @@ nnoremap <F2> :cn<cr>
 nnoremap <F5> :ALEToggle<cr>
 nnoremap <silent><F6> :call ToggleCwindow()<cr>
 nnoremap <silent><F7> :TagbarToggle<cr>
-nmap <F12> <Plug>CscopeDBInit
 
 " Clear the current line in both directions, except for leading whitespace.
 nnoremap DD $d^xA
@@ -412,7 +412,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'erig0/cscope_dynamic'
 Plug 'dense-analysis/ale'
 
 call plug#end()
