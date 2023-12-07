@@ -2,7 +2,4 @@
 #
 # Regenerate tags.
 # Requires that vim has been started with option --servername.
-#
-# Although this script is short it is kept separate to the git hook
-# scripts in case updating the cscope database is added later.
 vim --remote-send ':GutentagsUpdate!<cr>'
