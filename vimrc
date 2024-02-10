@@ -102,53 +102,45 @@ func! EditAltFileErr(fname, fext)
 	echo "file '" . a:fname . "' no alt " . a:fext . 'file'
 endfunc
 
-" Swap to (edit) an alternate file. The alternate file for a .c file is a .h
-" file, the alternate for a .cpp is .h also, and the alternate for a .h is
-" either of .c or .cpp.
-func! EditAltFile(s)
-	let parts = split(a:s, '\.')
-	let t = 0
-	let ext = 0
-	let fpath = ""
+" Swap to (edit) an alternate file to the input file. E.g. the alternate 
+" file for a .c file is a .h file, and vice versa. 
+func! EditAltFile(fname)
+	" Mapping between a file extension and its alternative file extensions to swap to.
+	let alt_maps = [
+		\['c',   ['h']],
+		\['cpp', ['hpp', 'h']],
+		\['h',   ['cpp', 'c']],
+		\['hpp', ['cpp']]
+	\]
+	let fname_parts = split(a:fname, '\.')
 
-	if len(parts) != 2
-		call EditAltFileErr(a:s, '')
+	if len(fname_parts) != 2
+		echo "error: " . a:fname
 		return
 	else
-		let t = parts[0]
-		let ext = parts[1]
+		let fname_prefix = fname_parts[0]
+		let fname_extension = fname_parts[1]
 	endif
 
-	" Flip extension between C/C++ source and header.
-	if ext == 'c' || ext == 'cpp'
-		if filereadable(t . '.' . 'h')
-			let ext = 'h'
-		else
-			call EditAltFileErr(a:s, '.h ')
-			return
+	for alt_map in alt_maps
+		if alt_map[0] == fname_extension
+			for alt_extension in alt_map[1]
+				let alt_fname = fname_prefix . '.' . alt_extension
+				if filereadable(alt_fname)
+					" Use :buffer to open instead of :edit so that editing continues
+					" from where the cursor previously was in the file, and not from
+					" the top of the file.
+					if bufexists(alt_fname)
+						exec ':b ' . alt_fname
+					else
+						exec ':e ' . alt_fname
+					endif
+					return
+				endif
+			endfor
 		endif
-	elseif ext == 'h'
-		if filereadable(t . '.' . 'c')
-			let ext = 'c'
-		elseif filereadable(t . '.' . 'cpp')
-			let ext = 'cpp'
-		else
-			call EditAltFileErr(t, 'c/c++ ')
-			return
-		endif
-	else
-		call EditAltFileErr(a:t, '')
-		return
-	endif
-	" Use :buffer to open instead of :edit so that editing continues
-	" from where the cursor previously was in the file, and not from
-	" the top of the file.
-	let fpath = t . '.' . ext
-	if bufexists(fpath)
-		exec ':b ' . fpath
-	else
-		exec ':e ' . fpath
-	endif
+	endfor
+	echo "no alternate file for " . a:fname
 endfunc
 
 " Jump back or forth a file. 
