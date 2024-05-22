@@ -8,6 +8,7 @@ set backspace=2  " Fix backspace sometimes not working in insert mode.
 set showcmd
 set exrc  " Use .vimrc in directory vim is opened from (project level settings).
 set secure
+set mouse=a
 
 " Search settings.
 set hlsearch
