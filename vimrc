@@ -37,8 +37,8 @@ hi CursorLineNr cterm=none ctermbg=255 ctermfg=174
 hi Visual ctermbg=252
 hi LineNr ctermfg=174
 hi Search ctermbg=210
-hi Pmenu ctermbg=217 
-hi PmenuSel ctermbg=204
+hi Pmenu ctermbg=217 ctermfg=16
+hi PmenuSel ctermbg=204 ctermfg=16
 hi WildMenu ctermbg=174
 hi StatusLine cterm=bold ctermbg=250 ctermfg=233
 hi StatusLineNC cterm=none ctermbg=253 ctermfg=233
