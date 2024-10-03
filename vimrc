@@ -44,6 +44,7 @@ hi StatusLine cterm=bold ctermbg=250 ctermfg=233
 hi StatusLineNC cterm=none ctermbg=253 ctermfg=233
 hi VertSplit cterm=none
 hi SignColumn ctermbg=255
+hi TODO ctermbg=214 ctermfg=16
 
 " OmniCppComplete plugin settings.
 " Have selecting an option in a popup window show more info in another popup
