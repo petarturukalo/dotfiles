@@ -60,7 +60,7 @@ let g:gutentags_ctags_extra_args = ['--options=' . $HOME . '/.ctags']
 let g:gutentags_modules = ['ctags', 'cscope']
 " Files to generate tags for by default. This can be overridden per-project
 " by setting this again in the project root .vimrc file.
-let g:gutentags_file_list_command = 'find . -name "*.[ch]"'
+let g:gutentags_file_list_command = 'find . -name "*.[ch]" -or -name "*.[ch]pp"'
 let g:gutentags_cscope_build_inverted_index = 1
 
 " Ale plugin settings.
