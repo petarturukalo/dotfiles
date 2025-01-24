@@ -26,7 +26,8 @@ set noexpandtab
 set statusline=%{winnr()}:\ %m\ %f\ %y\%h%r\ %l/%L,%c
 set laststatus=2  " Always show status line, even when there's only one file.
 set noruler  " Disable ruler as redundant with status line.
-set number " Use line numbers.
+set number " Show line number on current line when using relativenumber.
+set relativenumber
 
 " Colour settings.
 " See https://jonasjacek.github.io/colors/ for colours codes.
@@ -329,7 +330,6 @@ nnoremap <silent><leader>S yiw:call CscopeSymbol(getreg('"'))<cr>
 nnoremap <silent><leader>U    :call CscopeSymbol(CurCFuncName())<cr>
 nnoremap <silent><leader>A yiw:call CscopeSymAssign(getreg('"'))<cr>
 
-
 " Jump to an older/newer position in the preview window without leaving
 " the current window. Can't use <leader><c-o> for going to an older position
 " because can't use ctrl with leader.
@@ -337,6 +337,7 @@ nnoremap <leader>I <c-w>P<c-o><c-w>p
 nnoremap <leader>i <c-w>P<c-i><c-w>p
 
 nnoremap <leader>M :e Makefile<cr>
+nnoremap <leader>G :GutentagsUpdate!<cr>
 
 
 " INSERT MODE REMAPS
