@@ -23,7 +23,7 @@ let &shiftwidth = TABSZ
 set noexpandtab
 
 " Statusline and visual settings.
-set statusline=%{winnr()}:\ %m\ %f\ %y\%h%r\ %l/%L,%c
+set statusline=%{winnr()}:\ %m\ %f\ %y\%h%r\ %{tagbar#currenttag('%s\ ','','fs')}%l/%L,%c
 set laststatus=2  " Always show status line, even when there's only one file.
 set noruler  " Disable ruler as redundant with status line.
 set number " Show line number on current line when using relativenumber.
@@ -232,23 +232,6 @@ func! CscopeSymAssign(s)
 	exec 'cs find a ' . a:s
 endfunc
 
-" Get the name of the C function the cursor is currently in.
-" The function body open brace { needs to be on a line by itself
-" for this to work as intended.
-func! CurCFuncName()
-	exec 'norm! mz[['
-	" Function name is on the first line above that has at its start at least two words but 
-	" the second word can be an asterisk *, and then following it is an open parenthesis. 
-	" These two words make up the function's type and name. There could however be more words 
-	" involved in its type, such as static or unsigned, which have yet to be accounted for.  
-	" This could potentitally break if there's a function pointer parameter or the function returns
-	" a function pointer.
-	" TODO this regex can be improved, but it works well enough currently
-	?^\s*\w\+\s\+\(\w\|\*\)\+.*(
-	exec 'norm! f(bye`z:delmark z\<cr>'
-	return getreg('"')
-endfunc
-
 " Run a normal mode command that might move the cursor without
 " moving the cursor.
 " @mid_ncmd: string normal mode command to run that might move cursor
@@ -325,9 +308,9 @@ nnoremap <silent><leader>T :Tags<cr>
 nnoremap <silent><leader>B :Buffers<cr>
 nnoremap <silent><leader>P :call Ptags()<cr>
 nnoremap <silent><leader>C yiw:call CscopeFuncCalled(getreg('"'))<cr>
-nnoremap <silent><leader>D    :call CscopeFuncCalled(CurCFuncName())<cr>
+nnoremap <silent><leader>D    :call CscopeFuncCalled(substitute(tagbar#currenttag('%s',''), '()', '', 'q'))<cr>
 nnoremap <silent><leader>S yiw:call CscopeSymbol(getreg('"'))<cr>
-nnoremap <silent><leader>U    :call CscopeSymbol(CurCFuncName())<cr>
+nnoremap <silent><leader>U    :call CscopeSymbol(substitute(tagbar#currenttag('%s',''), '()', '', 'q'))<cr>
 nnoremap <silent><leader>A yiw:call CscopeSymAssign(getreg('"'))<cr>
 
 " Jump to an older/newer position in the preview window without leaving
@@ -336,7 +319,8 @@ nnoremap <silent><leader>A yiw:call CscopeSymAssign(getreg('"'))<cr>
 nnoremap <leader>I <c-w>P<c-o><c-w>p
 nnoremap <leader>i <c-w>P<c-i><c-w>p
 
-nnoremap <leader>M :e Makefile<cr>
+" Toggle mouse support.
+nnoremap <leader>M :exec &mouse=='' ? 'set mouse=a' : 'set mouse='<cr>
 nnoremap <leader>G :GutentagsUpdate!<cr>
 
 
