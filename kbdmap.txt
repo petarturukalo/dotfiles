@@ -20,8 +20,8 @@ mappings:
 - fn+a = volume down
 - fn+s = volume up
 - fn+d = ctrl+pgdn
-- fn+v = ctrl+pdup
-- fn+z = crl+b
+- fn+v = ctrl+pgup
+- fn+z = ctrl+b
 - fn+o = f10
 
 All mappings end in fn+t adding a delay of 15 ms so that they don't
