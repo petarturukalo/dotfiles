@@ -148,8 +148,8 @@ endfunc
 
 " Jump back or forth a file. 
 "
-" @s: normal command to execute. This command will jump the cursor
-" to either an older or newer position.
+" @param s Normal command to execute. This command will jump the cursor
+"	   to either an older or newer position.
 func! JmpFile(s)
 	" Previous line, column, bufnr.
 	let pl = -1
@@ -215,28 +215,25 @@ func! Ptags()
 endfunc
 
 " Cscope find where a symbol is used.
-" @s: symbol name
-func! CscopeSymbol(s)
-	exec 'cs find s ' . a:s
+func! CscopeSymbol(symbol_name)
+	exec 'cs find s ' . a:symbol_name
 endfunc
 
 " Cscope find functions calling a function.
-" @s: function being called
-func! CscopeFuncCalled(s)
-	exec 'cs find c ' . a:s
+func! CscopeFuncCalled(fn_name)
+	exec 'cs find c ' . a:fn_name
 endfunc
 
 " Cscope find places a symbol is assigned to.
-" @s: symbol 
-func! CscopeSymAssign(s)
-	exec 'cs find a ' . a:s
+func! CscopeSymAssign(symbol_name)
+	exec 'cs find a ' . a:symbol_name
 endfunc
 
 " Run a normal mode command that might move the cursor without
 " moving the cursor.
-" @mid_ncmd: string normal mode command to run that might move cursor
-" @after_ncmd: string normal mode command to run after having returned to the
-"	cursor position the cursor was at when this function was called
+" @param mid_ncmd String normal mode command to run that might move cursor
+" @param after_ncmd String normal mode command to run after having returned to the
+"		    cursor position the cursor was at when this function was called
 func! RunNCmdCursorStay(mid_ncmd, after_ncmd)
 	delmark z
 	exec "norm! mz" . a:mid_ncmd . "\<esc>`z"
