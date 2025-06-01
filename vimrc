@@ -290,8 +290,8 @@ nnoremap <leader>gq :GitGutterQuickFix<cr>:call OpenCwindow()<cr>
 nnoremap <leader>h O/*<cr><cr>/<esc>kA 
 
 nnoremap <leader>p <c-w>g}
-nnoremap <leader>m :make!<cr><cr>
-nnoremap <leader>n :make clean<cr><cr> 
+nnoremap <leader>M :make!<cr><cr>
+nnoremap <leader>N :make clean<cr><cr> 
 nnoremap <leader>o :call RunNCmdCursorStay('o', "")<cr>
 nnoremap <leader>O :call RunNCmdCursorStay('O', "")<cr>
 " Append ; to end of current line.
@@ -317,7 +317,7 @@ nnoremap <leader>I <c-w>P<c-o><c-w>p
 nnoremap <leader>i <c-w>P<c-i><c-w>p
 
 " Toggle mouse support.
-nnoremap <leader>M :exec &mouse=='' ? 'set mouse=a' : 'set mouse='<cr>
+nnoremap <leader>m :exec &mouse=='' ? 'set mouse=a' : 'set mouse='<cr>
 nnoremap <leader>G :GutentagsUpdate!<cr>
 
 
